@@ -2,8 +2,9 @@ import sys, pygame, time
 pygame.init()
 
 size = width, height = 320, 240
-speed = [10, 1]
+speed = [1, 0]
 black = 0, 0, 0
+length = 1
 
 screen = pygame.display.set_mode(size)
 
@@ -12,7 +13,10 @@ ballrect = ball.get_rect()
 
 # TODO:
 # - rabbits subset
-# - 
+# - snake growing
+# - rabbit eating event
+# - tail eating event
+# - wall hit event
 
 while 1:
     time.sleep(0.001)
