@@ -4,7 +4,6 @@ pygame.init()
 size = width, height = 320, 240
 head_pos = [ int(width/2), int(height/2) ]
 black = 0, 0, 0
-length = 1
 delay = 0.1
 
 # TODO:
@@ -13,6 +12,7 @@ delay = 0.1
 # + rabbit eating event
 # - tail eating event
 # + wall hit event
+# - game speed control
 
 img = pygame.image.load("intro_ball.gif")
 img_w = img.get_rect().width
@@ -30,7 +30,7 @@ def init_snake():
     head_pos[1] = int(height/2)
     direction[0] = img_w
     direction[1] = 0
-    return [ new_rect( head_pos ) ]
+    return [ new_rect(head_pos), new_rect(head_pos), new_rect(head_pos), new_rect(head_pos) ]
 
 class Rabbit:
     def __init__(self):
@@ -66,7 +66,8 @@ while 1:
           elif event.key == pygame.K_ESCAPE or event.key == ord('q'):
               pygame.quit()
               sys.exit()
-      if event.type == pygame.QUIT: sys.exit()
+      if event.type == pygame.QUIT: 
+          sys.exit()
 
     head_pos[0] += direction[0];
     head_pos[1] += direction[1];
